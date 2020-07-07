@@ -16,7 +16,7 @@ UserCompany.destroy_all
 UserSkill.destroy_all
 
 
-luis = User.create(name: "Luis", email:"123@gmail.com", password_digest:"123")
+luis = User.create(name: "Luis", email:"123@gmail.com", password:"123")
 apple = Company.create(name:"Apple", location:"Califorina", description:"makes simple use products",industry:"Tech")
 usercompany1 = UserCompany.create(user_id:luis.id,company_id: apple.id)
 
