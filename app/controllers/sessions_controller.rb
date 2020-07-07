@@ -6,8 +6,7 @@ class SessionsController < ActionController::Base
 
     def create
         user = User.find_by_email(params[:email])
-        byebug
-        if user && user.authenticate!(params[:password_digest])
+        if user && user.authenticate(params[:password_digest])
             session[:user_id] = user.id 
             redirect_to homepage_path, notice: "You are logged in!"
         else   
@@ -18,7 +17,7 @@ class SessionsController < ActionController::Base
             
         
     def destroy 
-        session[:user_id].clear 
+        session.destroy 
         redirect_to homepage_path, notice: "You have logged out!"
     end 
  
