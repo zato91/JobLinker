@@ -1,12 +1,13 @@
-<%= @user.name %>
+<h1> <%= @user.name %> </h1>
 
-<br> <br>
--Name: (string) <br><br>
+<br> 
+<%# <%= link_to "Current Company", company_path(current_user.id)%> <br> 
 
--Current company: Apple (link to show page of company) <br>
+-Current company: (link to show page of company) <br>
 -Edit company (min of 1)<br><br><br>
 
--Skills (min of 3) (coding - index of jobs with this skill) <br>
+-Skills (min of 3) <ul><%=@user.skills.name%><ul><br>
+
 -Add skill (max of 5) (if you are current_user, drop down)
 -Edit Skill 
 -Delete skill
@@ -15,7 +16,7 @@
 
 -Picture (find how to do this) <br> <br>
 
--Email: (user.email) <br><br>
+-Email: <%= @user.email%> <br><br>
 
 -Create a public status/post: (link to create page)
 

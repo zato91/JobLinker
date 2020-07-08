@@ -1,0 +1,23 @@
+<h1><%= @company.name %></h1>
+
+<h2>Details</h2>
+<ul>
+    <li>Name: <%= @company.name %></li>
+    <li>Location: <%= @company.location %></li>
+    <li>Location: <%= @company.description %></li>
+    <li>Location: <%= @company.industry %></li>
+
+
+    <li>Employee:
+        <ul>
+            <% @company.users.each do |user| %>
+                <li><%= link_to user.name, user_path(user.id) %></li>
+            <% end %>
+        </ul>
+    </li>
+</ul>
+<br>
+<div>
+<%= link_to "Homepage", homepage_path %>
+<
+</div>
