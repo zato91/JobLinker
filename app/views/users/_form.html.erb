@@ -10,9 +10,15 @@
     <%= f.label :password %>
     <%= f.text_field :password %><br> 
 
+    <%= f.label :company %>
+    <%= f.collection_select(:company_ids, Company.all, :id, :name)%><br> 
+
+
      <%= f.label :image %>
     <%= f.file_field :image %><br>
 
+    <%= f.label :skill %>
+    <%= f.collection_check_boxes(:skill_ids, Skill.all, :id, :name)  %><br>
 
     <%= f.submit %>
 
