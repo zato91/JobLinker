@@ -4,6 +4,7 @@ class User < ApplicationRecord
      has_many :posts
      has_many :user_skills
      has_many :skills, through: :user_skills
+     has_one_attached :image
 
      has_secure_password
 
