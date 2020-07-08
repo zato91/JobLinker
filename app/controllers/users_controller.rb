@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :find_user, only: [:show]
+    before_action :find_user, only: [:show,:edit,:update,:destroy]
 
     def show
        
@@ -12,6 +12,19 @@ class UsersController < ApplicationController
     def create
         @user = User.create(user_params)
         redirect_to user_path(@user)
+    end 
+
+    def edit 
+    end 
+
+    def update
+        @user.update(user_params)
+        redirect_to user_path(@user)
+    end 
+
+    def destroy 
+        @user.destroy
+        redirect_to homepage_path
     end 
 
     private 
