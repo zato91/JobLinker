@@ -1,7 +1,7 @@
 class CompaniesController < ApplicationController
  
     def show 
-        @company = find_company
+         find_company
     end 
 
     private
