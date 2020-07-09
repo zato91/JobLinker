@@ -1,5 +1,21 @@
 <h1> Homepage </h1>
 
+<%= simple_form_for :search, url: homepage_path, method: "GET" do |f| %>
+  <%= f.input :name, input_html: {value: ""} %>   
+  <%= f.submit "Search" %>
+<% end %>
+
+ <div >
+  <div>
+    <div >
+      <h1>Jobs</h1>
+      <% @joblistings.each do |jb| %>
+        <h3><%= jb.title %></h3>
+      <% end %>
+    </div>
+  </div>
+</div> 
+
 <% if current_user %>
  <%= link_to "Log Out", destroy_path, method: "DELETE" %> <br><br>
 <div> Current Email: <br>
