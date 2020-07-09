@@ -10,7 +10,7 @@
     <div >
       <h1>Jobs</h1>
       <% @joblistings.each do |jb| %>
-        <h3><%= jb.title %></h3>
+        <h3><%= link_to jb.title, job_listing_path(jb)%></h3>
       <% end %>
     </div>
   </div>

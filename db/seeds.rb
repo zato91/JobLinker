@@ -43,12 +43,14 @@ uc_creed_deloitte = UserCompany.create(user_id:creed.id,company_id: deloitte.id)
 
 
 post1 = Post.create(title:"promotion", message:"Super happy new position", user: luis)
+
 dwight_post = Post.create(title:"Identity Theft", message:"Identity Theft is not a joke!", user: dwight)
 kevin_post = Post.create(title:"New Day", message:"Body strong, sleep big last night.", user: kevin)
 pam_post = Post.create(title:"Dundies", message:"Just won a Dundies Award!", user: pam)
 jim_post = Post.create(title:"Marriage Annoucement", message:"I am getting married!", user: jim)
 dwight_post = Post.create(title:"The Trio", message:"Bears, Beats, Battlestar Galactica.", user: dwight)
 michael_post = Post.create(title:"Inspirational", message:"Would I rather be feared or loved? Easy. Both. I want people to be afraid of how much they love me.", user: michael)
+
 creed_post = Post.create(title: "Made a New Blog", message: "Launched my new blog. www.creedthoughts.gov.www/creedthoughts - check it out.", user: creed)
 
 

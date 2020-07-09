@@ -5,10 +5,10 @@
     <li>Name: <%= @company.name %></li>
     <li>Location: <%= @company.location %></li>
     <li>Location: <%= @company.description %></li>
-    <li>Location: <%= @company.industry %></li>
+    <li>Industry: <%= @company.industry %></li>
 
 
-    <li>Employee:
+    <li>Employees:
         <ul>
             <% @company.users.each do |user| %>
                 <li><%= link_to user.name, user_path(user.id) %></li>
@@ -17,7 +17,14 @@
     </li>
 </ul>
 <br>
+
+<h2> Job Listing: </h2>
+    <% @company.job_listings.each do |x|%>
+        <%= link_to x.title, job_listing_path(x)%> 
+    <%end %> 
+
+
 <div>
 <%= link_to "Homepage", homepage_path %>
-<
+
 </div>

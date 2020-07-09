@@ -9,29 +9,38 @@
 <%# <%= link_to "Current Company", company_path(current_user.id)%> <br> 
 
 -Current company: (link to show page of company) <br>
+<% @user.companies.each do |company| %>
+<ul> <%= link_to company.name, company_path(company.id)%> </ul>
+<%end %>
+
 -Edit company (min of 1)<br><br><br>
 
--Skills (min of 3) <ul><%=@user.skills.name%><ul><br>
+-Skills (min of 3) 
+<%@user.skills.each do |skill|%>
+ <ul> <li> <%= skill.name %> </li></ul>
+ <%end %>
 
 -Add skill (max of 5) (if you are current_user, drop down)
--Edit Skill 
--Delete skill
 
 <br><br>
+<div>
+-Edit Skill 
+<%= link_to "Edit your profile", edit_user_path(@user.id)%>
+</div>
+ <br><br>
+<div>
+-Delete skill
+<%= link_to "Delete your profile", user_path(@user.id), method: "DELETE"%>
+</div>
 
-
--Picture (find how to do this) <br> <br>
+<br><br>
 
 -Email: <%= @user.email%> <br><br>
 
 -Create a public status/post: (link to create page)
 
 <br><br><br>
-link to - profile (Luis)
-    -info 
-    -user specific posts (luis)
-    -link to company show page (apple)
-
-link to job listing index
-    job show page
-        jobs listings for apple 
+nav bars link to 
+    -job listings 
+    -user specific posts 
+    -link to company index page
