@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :users
   resources :companies, only: [:index, :show]
   resources :job_listings, only: [:index, :show]
+  resources :post, only: [:new, :create]
 
 
 
