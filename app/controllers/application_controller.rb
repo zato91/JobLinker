@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
         @search = params["search"]
            
         if @search.present?
-          @name = @search["name"]
+          @name = @search["name"].capitalize
           @joblistings = Skill.where(name: @name).map { |i| i.job_listings}.flatten      
         end
         current_user

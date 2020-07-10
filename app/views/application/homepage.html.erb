@@ -1,36 +1,128 @@
-<h1> Homepage </h1>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+<nav class="navbar" role="navigation" aria-label="main navigation">
 
-<%= simple_form_for :search, url: homepage_path, method: "GET" do |f| %>
-  <%= f.input :name, input_html: {value: ""} %>   
-  <%= f.submit "Search" %>
-<% end %>
+  <div class="navbar-brand">
+    <a class="navbar-item" href="">
+      <h1> Homepage </h1>
+    </a>
 
- <div >
-  <div>
-    <div >
-      <h1>Jobs</h1>
-      <% @joblistings.each do |jb| %>
-        <h3><%= link_to jb.title, job_listing_path(jb)%></h3>
-      <% end %>
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item">
+        Home
+      </a>
+
+      <a class="navbar-item">
+        Documentation
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More
+        </a>
+
+        <div class="navbar-dropdown">
+          <a class="navbar-item">
+            About
+          </a>
+          <a class="navbar-item">
+            Jobs
+          </a>
+          <a class="navbar-item">
+            Contact
+          </a>
+          <hr class="navbar-divider">
+          <a class="navbar-item">
+            Report an issue
+          </a>
+        </div>
+      </div>
+    </div>
+    <% if current_user %>
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+         
+          <%= link_to "Profile", user_path(current_user.id),class:"button is-primary"%>
+            <%= link_to "Log Out", destroy_path, method: "DELETE",class:"button is-light"  %> 
+            <% else %>
+             
+          <%= link_to "Create Profile", new_user_path, class:"button is-primary"%>
+            <%= link_to "Log In", login_path, class:"button is-light"%> 
+            
+          
+           
+          
+        </div>
+      </div>
     </div>
   </div>
-</div> 
+</nav>
+<% end %>
 
-<% if current_user %>
- <%= link_to "Log Out", destroy_path, method: "DELETE" %> <br><br>
-<div> Current Email: <br>
-<%=current_user.email%>
+<div  style="padding: 5em 25em 0em 25em; ">
+<%= simple_form_for :search, url: homepage_path, method: "GET" do |f| %>
+  <div><%= f.input :name,label: 'Enter Your skill', input_html: {value: ""} %></div>
+  <div style="display: grid;"><%= f.submit "Search" %></div>
+<% end %>
 </div>
 
-<%= link_to "Profile", user_path(current_user.id)%> <br><br>
+<div class="columns" , style="padding: 4em; display: flex;
+    flex-wrap: wrap;">
+ <% @joblistings.each do |jb| %>
 
-<p> All Listed Posts of all users (6 users, 1 post each, 6 posts) </p>
+  <div class="column is-one-third"">
 
-<p> Job Listings (Link) </p>
+  <div class="card">
+    <div class="card-content", style="height: 15em;">
+      <p class="title">
+                <%= jb.company.name%><br>
+                <%= jb.description%>
+                         
+      </p>
+      <p class="subtitle">
+        <%= jb.title%> <%= jb.salary%>$  
+      </p>
+    </div>
+    <footer class="card-footer">
+      <p class="card-footer-item">
+        <span>
+          link to <%= link_to jb.title, job_listing_path(jb)%> 
+        </span>
+      </p>
+    </footer>
+  </div>
 
-<% else %>
- <%= link_to "Log In", login_path%> <br><br>
-<%end %>
+ 
+</div>
+ <% end %>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%# <% if current_user %>
+<%# <%=current_user.email%>
+<%# <%end %> 
+
 
 
 
